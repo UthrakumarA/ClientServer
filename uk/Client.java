@@ -1,4 +1,3 @@
-
 import java.io.*; 
 import java.net.*; 
 import java.util.Scanner; 
@@ -11,17 +10,13 @@ public class Client
 	{ 
 		Scanner scn = new Scanner(System.in); 
 		
-		// getting localhost ip 
-		InetAddress ip = InetAddress.getByName("LocalHost"); 
+		InetAddress ip = InetAddress.getByName("LocalHost");
 		
-		// establish the connection 
 		Socket s = new Socket(ip, ServerPort);
 		
-		// obtaining input and out streams 
 		DataInputStream dis = new DataInputStream(s.getInputStream()); 
 		DataOutputStream dos = new DataOutputStream(s.getOutputStream()); 
 
-		// sendMessage thread 
 		Thread sendMessage = new Thread(new Runnable() 
 		{ 
 			@Override
@@ -41,7 +36,6 @@ public class Client
 			} 
 		}); 
 		
-		// readMessage thread 
 		Thread readMessage = new Thread(new Runnable() 
 		{ 
 			@Override
